@@ -7,7 +7,7 @@ permalink: /cat-calorie/privacy-policy.html
 # Privacy Policy — Cat Calorie
 
 **Effective date**: (replace with launch date — YYYY-MM-DD)
-**Last updated**: 2026-05-21
+**Last updated**: 2026-05-26
 
 Cat Calorie ("the App") respects your privacy. This document explains what information the App collects, how it is used, and how it is protected. The App complies with the Google Play Data Safety requirements and the COPPA principles for U.S. distribution.
 
@@ -41,8 +41,13 @@ The App includes third-party services to display advertising and process in-app 
 - **Used for**: Processing in-app purchases and refunds.
 - **Operator**: Google LLC. Payment data is handled inside Google Play Billing; the App operator never stores it.
 
-### 2-3. (Future) OpenAI Vision API
-When the photo-based portion estimation feature is enabled, the App will send the bowl photo to OpenAI's Vision API. The image is processed in transit only and not retained per OpenAI's API data policy. The App does not attach personal identifiers to these requests.
+### 2-3. OpenAI Vision API (photo-based portion estimation)
+- **What is sent**: When you tap "Scan food bowl" and take a photo, the App sends that single image to the OpenAI API (model: `gpt-4o-mini`) along with the selected food brand/product name as plain text. No cat profile, no feeding history, no device identifier, and no account information is attached.
+- **What comes back**: A single integer (estimated grams). The App stores only that integer locally; the photo itself is **not** retained by the App.
+- **OpenAI's handling**: Per OpenAI's API data policy, images submitted via the API are processed in transit and are **not used to train OpenAI's models**. See <https://openai.com/policies/api-data-usage-policies>.
+- **Operator**: OpenAI, L.L.C. ([OpenAI Privacy Policy](https://openai.com/policies/privacy-policy)).
+- **Demo mode**: When the App is built without an OpenAI API key, scans return a fixed demo value (58 g) and **no image leaves the device**.
+- **Quota**: Free users are limited to 3 scans per day (KST calendar day). Pro subscribers and viewers of an optional rewarded ad receive additional scans. The quota counter is stored on-device only.
 
 ---
 
@@ -91,5 +96,6 @@ This policy may be updated to reflect changes in law, technology, or App functio
 ## 9. Revision History
 
 - 2026-05-21 — Initial version
+- 2026-05-26 — §2-3 rewritten to present-tense disclosure of the OpenAI Vision API integration; documented demo-mode behavior, daily quota, and which fields are/are not sent.
 
 (End)
