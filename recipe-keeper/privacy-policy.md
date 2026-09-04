@@ -7,7 +7,7 @@ permalink: /recipe-keeper/privacy-policy.html
 # Privacy Policy — Recipe Keeper
 
 **Effective date**: (replace with launch date — YYYY-MM-DD)
-**Last updated**: 2026-05-28
+**Last updated**: 2026-09-04
 
 Recipe Keeper ("the App") respects your privacy. This document explains what information the App collects, how it is used, and how it is protected. The App complies with the Google Play Data Safety requirements and the COPPA principles for U.S. distribution.
 
@@ -25,7 +25,7 @@ Recipe Keeper ("the App") respects your privacy. This document explains what inf
 
 ## 2. Automatically Collected Information (Third-Party SDKs)
 
-The App includes third-party services to display advertising, process in-app purchases, and (for Pro subscribers) parse photographed recipes. These services may automatically collect limited information:
+The App includes third-party services to display advertising and process in-app purchases. These services may automatically collect limited information. Photo-to-recipe import is **not** one of them — it runs entirely on your device (see Section 2-3):
 
 ### 2-1. Google AdMob (advertising)
 - **Collected**: Advertising identifier (AAID on Android), device information (model, OS version, language), approximate location (country-level).
@@ -35,18 +35,19 @@ The App includes third-party services to display advertising, process in-app pur
   - Android: Settings → Google → Ads → "Opt out of Ads Personalization"
   - Or reset your advertising identifier
 - **Pro subscribers see no ads**, so no AdMob data is collected from Pro users.
+- This is the only third-party service that receives data in the current release.
 
 ### 2-2. Google Play Billing & RevenueCat (in-app purchases)
 - **Collected**: Payment information needed to process the transaction (Google account ID, payment method) by Google. An anonymous subscriber ID (random UUID, generated on first launch) by RevenueCat to track entitlement status.
 - **Used for**: Processing the Pro subscription, restoring purchases on re-install, and detecting cancellations.
 - **Operators**: Google LLC + RevenueCat, Inc. ([RevenueCat Privacy Policy](https://www.revenuecat.com/privacy)). Payment data is handled inside Google Play Billing; the App operator never stores it.
+- **Not active in the current release**: the Pro subscription is not yet purchasable, so no billing or subscriber data is collected today. This section describes the behaviour that begins when subscriptions are switched on.
 
-### 2-3. OpenAI Vision API (Pro photo-to-recipe import)
-- **What is sent**: When a Pro subscriber taps "Import from photo" and takes a picture of a recipe (cookbook page, handwritten card, web screenshot), the App sends **that single image** to the OpenAI API (model: `gpt-4o-mini`). No saved recipes, cookbooks, grocery items, or device identifier are attached.
-- **What comes back**: A structured text breakdown — title + ingredients (amount/unit/name) + steps. The App parses this through the same ingredient-normalization logic used for manual entry and saves the result locally; **the photo itself is not retained by the App**.
-- **OpenAI's handling**: Per OpenAI's API data policy, images submitted via the API are processed in transit and are **not used to train OpenAI's models**. See <https://openai.com/policies/api-data-usage-policies>.
-- **Operator**: OpenAI, L.L.C. ([OpenAI Privacy Policy](https://openai.com/policies/privacy-policy)).
-- **Demo / Free mode**: Free users do not see the Import-from-photo button. When the App is built without an OpenAI API key, the button is also hidden and **no image ever leaves the device** even for Pro users.
+### 2-3. Photo-to-recipe import (on-device — nothing is transmitted)
+- **How it works**: When you tap "Import from photo" and pick or take a picture of a recipe, the App reads the text **on your device** using Google ML Kit text recognition. The image is never uploaded, and no recipe text is sent anywhere.
+- **No third-party operator receives it**: no server, no API call, and no account is involved. Earlier drafts of this policy described a cloud vision service; the App no longer uses one, and no image has been transmitted by the released App.
+- **Model delivery**: ML Kit's recognition model may be delivered through Google Play services on your device. That delivery carries no photo, no recipe text, and no identifier from the App.
+- **Availability**: photo import is available on the free tier up to 3 imports per day; Pro removes that cap. It requires no API key and costs nothing to run.
 - **You stay in control**: Every imported recipe lands on the Recipe Edit screen for review and manual correction before save. Unparseable items are explicitly flagged "needs review" rather than silently dropped.
 
 ---
@@ -82,7 +83,7 @@ The App is not directed at children under 13 (COPPA). The App does not knowingly
 
 ## 7. Your Rights
 
-- Inquire what data the App collects — none directly (see Section 2 for advertising identifier opt-out and Section 2-3 for Pro photo-import disclosure).
+- Inquire what data the App collects — none directly (see Section 2 for advertising identifier opt-out and Section 2-3 for the on-device photo-import disclosure).
 - Delete all local data — uninstall the App, or use Settings → Restore from backup with an empty bundle.
 - Export your data — Settings → Export backup (JSON).
 
