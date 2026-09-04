@@ -6,7 +6,7 @@ permalink: /recipe-keeper/privacy-policy.html
 
 # Privacy Policy — Recipe Keeper
 
-**Effective date**: (replace with launch date — YYYY-MM-DD)
+**Effective date**: 2026-09-04
 **Last updated**: 2026-09-04
 
 Recipe Keeper ("the App") respects your privacy. This document explains what information the App collects, how it is used, and how it is protected. The App complies with the Google Play Data Safety requirements and the COPPA principles for U.S. distribution.
@@ -69,7 +69,7 @@ Recipe Keeper does **not** schedule any reminders or push notifications. The App
 
 ## 5. Sharing With Third Parties
 
-The App does not share user data with third parties. The third-party SDKs listed in Section 2 collect data per their own policies, which the App operator does not control.
+The App operator does not sell your data and runs no server of its own. Data is, however, transferred to third parties by the SDKs listed in Section 2 — Google AdMob receives the advertising identifier, approximate location, app-interaction and diagnostic information, which is why Google Play's Data safety section for this App reports those four items as both collected and shared. Your recipes, photos, cookbooks, grocery items and backups are never part of that transfer.
 
 When you tap "Export backup (JSON)", the resulting file is handed to the Android share sheet — *you* choose where it goes (Google Drive, email, etc). The App itself does not upload it.
 
