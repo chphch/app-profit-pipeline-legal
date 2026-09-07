@@ -6,8 +6,8 @@ permalink: /habit-streak/privacy-policy.html
 
 # Privacy Policy — Habit Streak
 
-**Effective date**: (replace with launch date — YYYY-MM-DD)
-**Last updated**: 2026-05-27
+**Effective date**: 2026-09-08
+**Last updated**: 2026-09-08
 
 Habit Streak ("the App") respects your privacy. This document explains what information the App collects, how it is used, and how it is protected. The App complies with the Google Play Data Safety requirements and the COPPA principles for U.S. distribution.
 
@@ -25,21 +25,19 @@ Habit Streak ("the App") respects your privacy. This document explains what info
 
 ## 2. Automatically Collected Information (Third-Party SDKs)
 
-The App includes third-party services to display advertising and process in-app purchases. These services may automatically collect limited information:
+The App shows **no advertising of any kind**, in either tier. An earlier draft of this
+policy described a Google AdMob integration; that SDK was removed on 2026-09-08 and the
+released App contains no advertising library, requests no advertising-identifier permission,
+and collects no advertising identifier, device profile or location.
 
-### 2-1. Google AdMob (advertising)
-- **Collected**: Advertising identifier (AAID on Android), device information (model, OS version, language), approximate location (country-level).
-- **Used for**: Personalized ad delivery, ad performance measurement, fraud prevention.
-- **Operator**: Google LLC ([Google Privacy Policy](https://policies.google.com/privacy)).
-- **Opt-out**:
-  - Android: Settings → Google → Ads → "Opt out of Ads Personalization"
-  - Or reset your advertising identifier
-- **Pro subscribers see no ads**, so no AdMob data is collected from Pro users.
+The only third-party service the App can contact is the in-app purchase layer below, and
+even that is inactive in the current release:
 
-### 2-2. Google Play Billing & RevenueCat (in-app purchases)
+### 2-1. Google Play Billing & RevenueCat (in-app purchases)
 - **Collected**: Payment information needed to process the transaction (Google account ID, payment method) by Google. An anonymous subscriber ID (random UUID, generated on first launch) by RevenueCat to track entitlement status.
 - **Used for**: Processing the Pro subscription, restoring purchases on re-install, and detecting cancellations.
 - **Operators**: Google LLC + RevenueCat, Inc. ([RevenueCat Privacy Policy](https://www.revenuecat.com/privacy)). Payment data is handled inside Google Play Billing; the App operator never stores it.
+- **Not active in the current release**: the Pro upgrade is not yet purchasable, so no billing or subscriber data is collected today. This section describes the behaviour that begins when purchases are switched on.
 
 ---
 
@@ -74,7 +72,7 @@ The App is not directed at children under 13 (COPPA). The App does not knowingly
 
 ## 7. Your Rights
 
-- Inquire what data the App collects — none directly (see Section 2 for advertising identifier opt-out).
+- Inquire what data the App collects — none directly; see Section 2 for the one third-party layer, which is inactive today.
 - Delete all local data — uninstall the App, or use Settings → Restore from backup with an empty bundle.
 - Export your data — Settings → Export backup (JSON).
 
@@ -98,6 +96,9 @@ This policy may be updated to reflect changes in law, technology, or App functio
 
 ## 10. Revision History
 
+- 2026-09-08 — Removed the Google AdMob section: the advertising SDK was taken out of the
+  App, so nothing collects an advertising identifier, device profile or location any more.
+  Noted that in-app purchases are not active in the current release.
 - 2026-05-27 — Initial version (closed-test launch prep).
 
 (End)
