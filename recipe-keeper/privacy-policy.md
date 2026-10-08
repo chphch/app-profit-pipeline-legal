@@ -7,7 +7,7 @@ permalink: /recipe-keeper/privacy-policy.html
 # Privacy Policy — Recipe Keeper
 
 **Effective date**: 2026-09-04
-**Last updated**: 2026-09-04
+**Last updated**: 2026-10-08
 
 Recipe Keeper ("the App") respects your privacy. This document explains what information the App collects, how it is used, and how it is protected. The App complies with the Google Play Data Safety requirements and the COPPA principles for U.S. distribution.
 
@@ -25,7 +25,7 @@ Recipe Keeper ("the App") respects your privacy. This document explains what inf
 
 ## 2. Automatically Collected Information (Third-Party SDKs)
 
-The App includes third-party services to display advertising and process in-app purchases. These services may automatically collect limited information. Photo-to-recipe import is **not** one of them — it runs entirely on your device (see Section 2-3):
+The App includes third-party services to display advertising, recognize text in photos on your device, and process in-app purchases. These services may automatically collect limited information. Photo-to-recipe import never sends your photo or the text read from it — recognition runs entirely on your device (see Section 2-3):
 
 ### 2-1. Google AdMob (advertising)
 - **Collected**: Advertising identifier (AAID on Android), device information (model, OS version, language), approximate location (country-level).
@@ -35,7 +35,7 @@ The App includes third-party services to display advertising and process in-app 
   - Android: Settings → Google → Ads → "Opt out of Ads Personalization"
   - Or reset your advertising identifier
 - **Pro subscribers see no ads**, so no AdMob data is collected from Pro users.
-- This is the only third-party service that receives data in the current release.
+- AdMob and Google ML Kit (diagnostics only — see Section 2-3) are the only third-party services that receive data in the current release.
 
 ### 2-2. Google Play Billing & RevenueCat (in-app purchases)
 - **Collected**: Payment information needed to process the transaction (Google account ID, payment method) by Google. An anonymous subscriber ID (random UUID, generated on first launch) by RevenueCat to track entitlement status.
@@ -43,12 +43,12 @@ The App includes third-party services to display advertising and process in-app 
 - **Operators**: Google LLC + RevenueCat, Inc. ([RevenueCat Privacy Policy](https://www.revenuecat.com/privacy)). Payment data is handled inside Google Play Billing; the App operator never stores it.
 - **Not active in the current release**: the Pro subscription is not yet purchasable, so no billing or subscriber data is collected today. This section describes the behaviour that begins when subscriptions are switched on.
 
-### 2-3. Photo-to-recipe import (on-device — nothing is transmitted)
-- **How it works**: When you tap "Import from photo" and pick or take a picture of a recipe, the App reads the text **on your device** using Google ML Kit text recognition. The image is never uploaded, and no recipe text is sent anywhere.
+### 2-3. Photo-to-recipe import (on-device — your photo is never transmitted)
+- **How it works**: When you tap "Import from photo" and take a picture of a recipe, the App reads the text **on your device** using Google ML Kit text recognition. The image is never uploaded, and no recipe text is sent anywhere.
 - **No third-party operator receives it**: no server, no API call, and no account is involved. Earlier drafts of this policy described a cloud vision service; the App no longer uses one, and no image has been transmitted by the released App.
-- **Model delivery**: ML Kit's recognition model may be delivered through Google Play services on your device. That delivery carries no photo, no recipe text, and no identifier from the App.
+- **ML Kit diagnostics**: The recognition model is bundled inside the App, so nothing is downloaded to read a photo. Google's ML Kit SDK does send Google diagnostic and usage data — device model and OS version, app package and version, a per-installation identifier (not designed to identify you or your device), performance metrics such as latency, and error codes — over an encrypted connection, and Google does not pass it to other third parties. It never includes the photo or the recognized text. Operator: Google LLC ([ML Kit data disclosure](https://developers.google.com/ml-kit/android-data-disclosure)).
 - **Availability**: photo import is available on the free tier up to 3 imports per day; Pro removes that cap. It requires no API key and costs nothing to run.
-- **You stay in control**: Every imported recipe lands on the Recipe Edit screen for review and manual correction before save. Unparseable items are explicitly flagged "needs review" rather than silently dropped.
+- **You stay in control**: The App first shows you the title, ingredients and steps it read from the photo and fills in nothing until you accept them. Every accepted import then lands on the Recipe Edit screen for review and manual correction before save.
 
 ---
 
@@ -69,7 +69,7 @@ Recipe Keeper does **not** schedule any reminders or push notifications. The App
 
 ## 5. Sharing With Third Parties
 
-The App operator does not sell your data and runs no server of its own. Data is, however, transferred to third parties by the SDKs listed in Section 2 — Google AdMob receives the advertising identifier, approximate location, app-interaction and diagnostic information, which is why Google Play's Data safety section for this App reports those four items as both collected and shared. Your recipes, photos, cookbooks, grocery items and backups are never part of that transfer.
+The App operator does not sell your data and runs no server of its own. Data is, however, transferred to third parties by the SDKs listed in Section 2 — Google AdMob receives the advertising identifier, approximate location, app-interaction and diagnostic information, which is why Google Play's Data safety section for this App reports those four items as both collected and shared. Google ML Kit receives the diagnostic data and per-installation identifier described in Section 2-3. Your recipes, photos, cookbooks, grocery items and backups are never part of that transfer.
 
 When you tap "Export backup (JSON)", the resulting file is handed to the Android share sheet — *you* choose where it goes (Google Drive, email, etc). The App itself does not upload it.
 
